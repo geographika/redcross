@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<!--<script src="/bower_components/d3/d3.min.js" charset="utf-8"></script>-->
+<script src="bower_components/d3/d3.js" charset="utf-8"></script>
+<script src="bower_components/topojson/topojson.js" charset="utf-8"></script>
+
+<link rel="stylesheet" href="bower_components/simple-map-d3/dist/simple-map-d3.css">
+<script src="bower_components/simple-map-d3/dist/simple-map-d3.js" charset="utf-8"></script>
+
+<script>
+
+ var europePopMap = SimpleMapD3({
+    container: '#simple-map-d3-example',
+    datasource: 'Phil_provinces.geojson',
+    colorSet: 'Spectral',
+    colorOn: true,
+    colorProperty: 'P_Int',
+    colorReverse: true,
+    projection: 'mercator',
+    rotation: [0, 0, -20],
+    canvasDragOn: true,
+    tooltipContent: function(d) {
+      var p = d.properties;
+      return '<h5>' + p.NAME_1 + '</h5>' +
+        p.P_Int + ' P_Int';
+    }
+  });
+  /**
+  europePopMap.events.on('dataLoaded.YOUR_NAMESPACE', function(smd) {
+    // Do your thing
+  });
+  */
+  
+ </script>
+ 
+<body>
+<div id="simple-map-d3-example" style="background-color:#C1C1C1; height:400px;"></div>
+
+ 
+ </body>
+ </html>
+  
+  
